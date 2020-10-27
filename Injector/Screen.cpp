@@ -2,6 +2,8 @@
 
 bool b_opened = true;
 
+int selectable_method = 0;
+
 Funcs funcs;
 
 ImVec4 rgba(float r, float g, float b, float a)
@@ -216,6 +218,8 @@ void Screen::DrawInject()
             ImGui::SliderInt("", &Config.delay_inject, 0, 60);
             ImGui::SameLine();
             ImGui::Text("seconds");
+            ImGui::RadioButton("LoadLibrary", &selectable_method, 0);
+            ImGui::RadioButton("ManualMap", &selectable_method, 1);
             if (ImGui::Button("Close Process", ImVec2(ImGui::CalcTextSize("Close Process").x + 20, 30)))
             {
                 if (funcs.CloseProcess(pid))
@@ -234,7 +238,10 @@ void Screen::DrawInject()
             {
                 if (pid != 0)
                 {
-                    funcs.inject(pid, Config.path);
+                    if (funcs.inject(pid, Config.path, Config.delay_inject, selectable_method))
+                    {
+                        MessageBoxA(0, "Injected successfully", WINDOW_NAME, MB_ICONINFORMATION | MB_OK);
+                    }
                 }
                 else
                 {
@@ -276,7 +283,7 @@ void Screen::DrawInject()
             if (!item_current.empty())
             {
                 Config.path = item_current.c_str();
-            }              
+            }
             if (ImGui::Button("Add DLL", ImVec2(ImGui::CalcTextSize("Add DLL").x + 60, 30)))
             {
                 OPENFILENAME ofn = { 0 };

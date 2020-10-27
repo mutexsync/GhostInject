@@ -1,18 +1,8 @@
 ﻿  Funcs.cpp
 C:\Users\ryanb\Documents\Projetos\System\Injector\Injector\mini.h(340,44): warning C4244: 'argumento': conversão de 'std::streamoff' para 'const unsigned int', possível perda de dados
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_impl_glfw.cpp
-  imgui_impl_opengl2.cpp
-  imgui_widgets.cpp
-  main.cpp
-C:\Users\ryanb\Documents\Projetos\System\Injector\Injector\mini.h(340,44): warning C4244: 'argumento': conversão de 'std::streamoff' para 'const unsigned int', possível perda de dados
-  Screen.cpp
-C:\Users\ryanb\Documents\Projetos\System\Injector\Injector\mini.h(340,44): warning C4244: 'argumento': conversão de 'std::streamoff' para 'const unsigned int', possível perda de dados
   Gerando código
-  0 of 2038 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  3 of 2045 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    15 functions had inline decision re-evaluated but remain unchanged
   Finalizada a geração de código
   Injector.vcxproj -> C:\Users\ryanb\Documents\Projetos\System\Injector\Release\Injector.exe
