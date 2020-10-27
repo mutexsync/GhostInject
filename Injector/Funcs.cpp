@@ -269,27 +269,18 @@ void __stdcall Shellcode(MANUAL_MAPPING_DATA* pData)
 	pData->hMod = reinterpret_cast<HINSTANCE>(pBase);
 }
 
-bool Funcs::inject(DWORD pid, const char* path, int delay, int method)
+bool Funcs::inject(DWORD pid, const char* path, int delay = 0, int method = 0)
 {
-	if (delay > 0)
+	Sleep(delay * 1000);
+
+	switch (method)
 	{
-		Sleep(delay * 1000);
+	case 0:
+	    return LoadLibrary_(pid, path);
+	case 1:
+	    return ManualMap(pid, path);
+	default: break;
 	}
-	if (method == 0)
-	{
-		if (LoadLibrary_(pid, path))
-		{
-			return true;
-		}
-		return false;
-	}
-	else if (method == 1)
-	{
-		if (ManualMap(pid, path))
-		{
-			return true;
-		}
-		return false;
-	}
+
 	return false;
 }
