@@ -273,7 +273,7 @@ bool Funcs::inject(DWORD pid, const char* path, int delay, int method)
 {
 	if (delay > 0)
 	{
-		Sleep(delay);
+		Sleep(delay * 1000);
 	}
 	if (method == 0)
 	{
